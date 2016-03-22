@@ -12,7 +12,7 @@
 library("highcharter")
 library("jsonlite")
 library("htmltools")
-library("printr")
+library("stringr")
 
 rm(list = ls())
 
@@ -44,11 +44,11 @@ charts <- lapply(thms, function(thmname){
              paste0("themes/", thmname,".js"))
   
   chart <- hc %>%
-    hc_subtitle(text = paste("Theme", thmname)) %>% 
+    hc_subtitle(text = sprintf("This is a test using the %s theme", thmname)) %>% 
     hc_add_theme(get(paste0("hc_theme_", thmname))())
   
   tags$div(
-    tags$h1(sprintf("This is the theme %s", thmname)),
+    tags$h1(str_to_title(thmname)),
     chart
     )
 })
