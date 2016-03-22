@@ -1,9 +1,10 @@
 {
-  "colors": ["#6794a7", "#014d64", "#76c0c1", "#01a2d9", "#7ad2f6", "#00887d", "#adadad", "#7bd3f6", "#7c260b", "#ee8f71", "#76c0c1", "#a18376"],
+  "colors": ["#FF2700", "#008FD5", "#77AB43", "#636464", "#C4C4C4"],
   "chart": {
-    "backgroundColor": "#d5e4eb",
+    "backgroundColor": "#F0F0F0",
+    "plotBorderColor": "#606063",
     "style": {
-      "fontFamily": "Droid Sans",
+      "fontFamily": "Roboto",
       "color": "#3C3C3C"
     }
   },
@@ -16,10 +17,35 @@
   "subtitle": {
     "align": "left"
   },
+  "xAxis": {
+    "gridLineWidth": 1,
+    "gridLineColor": "#D7D7D8",
+    "labels": {
+      "style": {
+        "fontFamily": "Unica One, sans-serif",
+        "color": "#3C3C3C"
+      }
+    },
+    "lineColor": "#D7D7D8",
+    "minorGridLineColor": "#505053",
+    "tickColor": "#D7D7D8",
+    "tickWidth": 1,
+    "title": {
+      "style": {
+        "color": "#A0A0A3"
+      }
+    }
+  },
   "yAxis": {
-    "gridLineColor": "#FFFFFF",
-    "lineColor": "#FFFFFF",
-    "minorGridLineColor": "#FFFFFF",
+    "gridLineColor": "#D7D7D8",
+    "labels": {
+      "style": {
+        "fontFamily": "Unica One, sans-serif",
+        "color": "#3C3C3C"
+      }
+    },
+    "lineColor": "#D7D7D8",
+    "minorGridLineColor": "#505053",
     "tickColor": "#D7D7D8",
     "tickWidth": 1,
     "title": {
@@ -29,18 +55,14 @@
     }
   },
   "tooltip": {
-    "backgroundColor": "#FFFFFF",
-    "borderColor": "#76c0c1",
+    "backgroundColor": "rgba(0, 0, 0, 0.85)",
     "style": {
-      "color": "#000000"
+      "color": "#F0F0F0"
     }
   },
   "legend": {
     "itemStyle": {
       "color": "#3C3C3C"
-    },
-    "itemHoverStyle": {
-      "color": "#FFF"
     },
     "itemHiddenStyle": {
       "color": "#606063"
@@ -54,22 +76,6 @@
   "labels": {
     "style": {
       "color": "#D7D7D8"
-    }
-  },
-  "drilldown": {
-    "activeAxisLabelStyle": {
-      "color": "#F0F0F3"
-    },
-    "activeDataLabelStyle": {
-      "color": "#F0F0F3"
-    }
-  },
-  "navigation": {
-    "buttonOptions": {
-      "symbolStroke": "#DDDDDD",
-      "theme": {
-        "fill": "#505053"
-      }
     }
   },
   "legendBackgroundColor": "rgba(0, 0, 0, 0.5)",
