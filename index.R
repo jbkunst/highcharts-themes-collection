@@ -48,7 +48,7 @@ charts <- lapply(thms, function(thmname){
     hc_add_theme(get(paste0("hc_theme_", thmname))())
   
   tags$div(
-    tags$h1(sprintf("Theme %s", thmname)),
+    tags$h1(sprintf("This is the theme %s", thmname)),
     chart
     )
 })
