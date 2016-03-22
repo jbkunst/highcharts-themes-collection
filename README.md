@@ -1,4 +1,4 @@
-# Highcharts themes collection
+# [Highcharts themes collection](http://jkunst.com/highcharts-themes-collection/)
 
 This is a collection of highcarts themes inspired by newspapers, brands and sites. Please, enjoy!
 
