@@ -1,4 +1,3 @@
-# highcharts-themes-collection
 # Highcharts themes collection
 
 This is a collection of highcarts themes inspired by newspapers, brands and sites. Please, enjoy!
