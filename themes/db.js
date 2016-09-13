@@ -60,15 +60,15 @@
     "labels": {
       "style": {
         "color": "#525252"
-      }
-    },
-    "lineColor": "#2E3740",
-    "tickColor": "#2E3740",
-    "title": {
-      "style": {
-        "color": "#FFFFFF"
       },
-      "text": {}
+      "lineColor": "#2E3740",
+      "tickColor": "#2E3740",
+      "title": {
+        "style": {
+          "color": "#FFFFFF"
+        },
+        "text": {}
+      }
     }
   }
 }

@@ -3,54 +3,49 @@
 #' author: "Joshua Kunst"
 #' date: "`r format(Sys.time(), ' %Y/%m')`"
 #' output:
-#'   rmdformats::html_clean
+#'   html_document:
+#'     toc: true
+#'     toc_float: true
 #' ---
+#' 
 #' <link rel="stylesheet" href="styles.css" media="screen">
-  
-
-#+echo=FALSE, warning=FALSE
-library("highcharter")
-library("jsonlite")
-library("htmltools")
-library("stringr")
-
+#' 
+#' You can download them from [here](https://github.com/jbkunst/highcharts-themes-collection/tree/gh-pages/themes)
+#'
+#' 
+#+ echo=FALSE, warning=FALSE, include=FALSE
 rm(list = ls())
+library(highcharter)
+library(tidyverse)
+library(jsonlite)
+library(htmltools)
+source("helpers.R")
 
-data("citytemp")
-dtemp <- citytemp
+p <- list_get_demos()
 
-hc <-  highchart() %>% 
-  hc_title(text = "Monthly Average Temperature") %>% 
-  hc_subtitle(text = "Source: WorldClimate.com") %>% 
-  hc_yAxis(title = list(text = "Temperature")) %>% 
-  hc_xAxis(categories = dtemp$month) %>% 
-  hc_add_series(name = "Tokyo", data = dtemp$tokyo) %>% 
-  hc_add_series(name = "London", data = dtemp$london) %>% 
-  hc_add_series(name = "Berlin", data = dtemp$berlin) 
-
-thms <- ls("package:highcharter", pattern = "hc_theme_")
-thms <- c("538", "db", "economist", "ft", "google",
-          "smpl", "flat", "flatdark")
-
-fonts <- NULL
+thms <- c("smpl", "538", "db", "economist", "ft",
+          "google", "flat", "flatdark", "null")
 
 charts <- lapply(thms, function(thmname){
-  # thmname <- "ft"
+  # thmname <- sample(thms, 1)
   thm <- get(paste0("hc_theme_", thmname))()
-  
   attr(thm, "class") <- NULL
   
   writeLines(toJSON(as.list(thm), pretty = TRUE, auto_unbox = TRUE),
              paste0("themes/", thmname,".js"))
   
-  chart <- hc %>%
-    hc_subtitle(text = sprintf("This is a test using the %s theme", thmname)) %>% 
-    hc_add_theme(get(paste0("hc_theme_", thmname))())
+  thm <- get(paste0("hc_theme_", thmname))()
+  
+  p <- map(p, hc_add_theme, thm)
+  p <- map(p, hc_size, height = 350, width = "100%")
   
   tags$div(
-    tags$h1(str_to_title(thmname)),
-    chart
+    tags$h1(thmname),
+    p(),
+    hw_grid(p, ncol = 2),
+    p()
     )
 })
 
-htmltools::tagList(charts)
+#+ echo=FALSE, warning=FALSE
+tagList(charts)

@@ -1,13 +1,21 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed';
+
+div.main-container {
+  max-width: none;
+}
+
 .main-container {
-  max-width: 768;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
 }
 
-.highchart {
-  margin: 20px;
+h1 {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #77779d;
 }
 
-.tocify-extend-page {
-  height: 0;
+body {
+  font-family: 'Roboto', sans-serif;
 }
+
+
+
