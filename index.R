@@ -24,7 +24,8 @@ source("helpers.R")
 p <- list_get_demos()
 
 thms <- c("smpl", "538", "db", "economist", "ft",
-          "google", "flat", "flatdark", "null")
+          "elementary", "flat", "flatdark",
+          "google", "null")
 
 charts <- lapply(thms, function(thmname){
   # thmname <- sample(thms, 1)
