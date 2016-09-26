@@ -6,5 +6,5 @@ This is a collection of highcarts themes inspired by newspapers, brands and site
 
 # #TY
 
-- highcharts.com
+- https://www.highcharts.com
 - https://www.google.com/fonts
