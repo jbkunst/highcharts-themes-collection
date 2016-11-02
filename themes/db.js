@@ -1,5 +1,5 @@
 {
-  "colors": ["#FFFFFF", "#A9CF54", "#C23C2A", "#979797", "#FBB829"],
+  "colors": ["#A9CF54", "#C23C2A", "#FFFFFF", "#979797", "#FBB829"],
   "chart": {
     "backgroundColor": "#242F39"
   },
