@@ -21,6 +21,19 @@ library(jsonlite)
 library(htmltools)
 source("helpers.R")
 
+d <- help.search("theme", package = "highcharter")
+class(d)
+str(d)
+
+library(dplyr)
+
+d$matches %>%
+  tbl_df() %>%
+  janitor::clean_names() %>% 
+  select(name, title) %>% 
+  distinct() %>% View() 
+
+
 p <- list_get_demos()
 
 thms <- c("smpl", "538", "db", "economist", "ft",
