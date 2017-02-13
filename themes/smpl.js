@@ -36,5 +36,27 @@
     "minorGridLineColor": "#F3F3F3",
     "tickColor": "#F3F3F3",
     "tickWidth": 1
+  },
+  "plotOptions": {
+    "line": {
+      "marker": {
+        "enabled": false
+      }
+    },
+    "spline": {
+      "marker": {
+        "enabled": false
+      }
+    },
+    "area": {
+      "marker": {
+        "enabled": false
+      }
+    },
+    "areaspline": {
+      "marker": {
+        "enabled": false
+      }
+    }
   }
 }

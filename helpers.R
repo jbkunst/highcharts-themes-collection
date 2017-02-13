@@ -5,7 +5,7 @@ list_get_demos <- function(){
   p1 <- highcharts_demo()
   
   
-  p2 <- hchart(mpg, "scatter", x = displ, y = hwy, group = class)
+  p2 <- hchart(mpg, "scatter", hcaes(x = displ, y = hwy, group = class))
   
   library(forecast)
   p3 <- hchart(
@@ -18,7 +18,7 @@ list_get_demos <- function(){
   
   
   mpgman2 <- count(mpg, class, year)
-  p5 <- hchart(mpgman2, "column", x = class, y = n, group = year)
+  p5 <- hchart(mpgman2, "column", hcaes(x = class, y = n, group = year))
   
   
   library(quantmod)
