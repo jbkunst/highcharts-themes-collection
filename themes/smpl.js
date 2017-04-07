@@ -2,7 +2,8 @@
   "colors": ["#d35400", "#2980b9", "#2ecc71", "#f1c40f", "#2c3e50", "#7f8c8d"],
   "chart": {
     "style": {
-      "fontFamily": "Roboto"
+      "fontFamily": "Roboto",
+      "color": "#666666"
     }
   },
   "title": {
@@ -57,6 +58,9 @@
       "marker": {
         "enabled": false
       }
+    },
+    "bubble": {
+      "maxSize": "10%"
     }
   }
 }
