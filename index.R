@@ -4,11 +4,10 @@
 #' date: "`r format(Sys.time(), ' %Y/%m')`"
 #' output:
 #'   html_document:
+#'     theme: yeti
 #'     toc: true
 #'     toc_float: true
 #' ---
-#' 
-#' <link rel="stylesheet" href="styles.css" media="screen">
 #' 
 #' You can download them from [here](https://github.com/jbkunst/highcharts-themes-collection/tree/gh-pages/themes)
 #'
