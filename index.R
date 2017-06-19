@@ -1,16 +1,14 @@
 #' ---
 #' title: "Highcharts Themes Collection"
-#' author: "Joshua Kunst"
-#' date: "`r format(Sys.time(), ' %Y/%m')`"
+#' author: false # "Joshua Kunst"
+#' date: false # "`r format(Sys.time(), ' %Y/%m')`"
 #' output:
 #'   html_document:
 #'     theme: yeti
-#'     toc: true
+#'     css: styles.css
+#'     toc: false
 #'     toc_float: true
 #' ---
-#' 
-#' You can download them from [here](https://github.com/jbkunst/highcharts-themes-collection/tree/gh-pages/themes)
-#'
 #' 
 #+ echo=FALSE, warning=FALSE, include=FALSE
 rm(list = ls())
@@ -39,10 +37,8 @@ themes <- help.search("theme", package = "highcharter") %>%
 
 thms <- unique(c("hc_theme_smpl", "hc_theme_db", themes$name))
 
-charts <- map(thms, function(thmname){
-  
-  # thmname <- sample(thms, size = 1)
-  message(thmname)
+get_charts_w_theme <- function(thmname) { # thmname <- sample(thms, size = 1)
+    
   thmname_short <- str_replace(thmname, "hc_theme_", "")
   
   thm <- get(thmname)()
@@ -63,19 +59,36 @@ charts <- map(thms, function(thmname){
     attr(thm, "class") <- NULL
     writeLines(toJSON(as.list(thm), pretty = TRUE, auto_unbox = TRUE),
                paste0("themes/", "tufte2",".js"))
-  }
+    }
   
   link <- sprintf("https://raw.githubusercontent.com/jbkunst/highcharts-themes-collection/gh-pages/themes/%s.js",
                   thmname_short)
   
-  tags$div(
-    tags$h1(themes$title[themes$name == thmname]),
-    p(tags$a(href = link, download = thmname_short, "download")),
-    hw_grid(p, ncol = 2),
-    p()
-    )
   
-})
+  p %>% 
+    map(tags$div, class = "col-md-4") %>%
+    tags$div(., br(), tags$small(tags$a(href = link, download = thmname_short, "download")), class = "fluid-row")
+    
+}
 
 #+ echo=FALSE, warning=FALSE
-tagList(charts)
+thms %>% 
+  map(function(t){ # t <- sample(thms, 1)
+    
+    tags$a(t, `data-target` = paste0("#", t), `data-toggle` = "tab") %>% 
+      tags$li(class = if(t == thms[1]) "active" else NULL)
+    # "<li><a data-target="#profile" data-toggle="tab">Profile</a></li>"
+    
+  }) %>% 
+  tags$ul(class = "nav nav-pills", id = "myTab", .)
+
+thms %>% 
+  map(function(t){ # t <- sample(thms, 1)
+    
+    content <- get_charts_w_theme(t)
+    
+    tags$div(content, id = t, class = "tab-pane", class = if(t == thms[1]) "active" else NULL)
+    
+  }) %>% 
+  tags$div(class = "tab-content")
+    
