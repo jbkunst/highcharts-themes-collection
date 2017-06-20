@@ -4,7 +4,7 @@
 #' date: false # "`r format(Sys.time(), ' %Y/%m')`"
 #' output:
 #'   html_document:
-#'     theme: yeti
+#'     theme: paper
 #'     css: styles.css
 #'     toc: false
 #'     toc_float: true
@@ -49,7 +49,7 @@ get_charts_w_theme <- function(thmname) { # thmname <- sample(thms, size = 1)
   thm <- get(thmname)()
   
   p <- map(p, hc_add_theme, thm)
-  p <- map(p, hc_size, height = 400, width = "100%")
+  p <- map(p, hc_size, height = 300, width = "100%")
   
   if(thmname == "hc_theme_tufte") {
     p[[1]] <- p[[1]] %>% hc_add_theme(hc_theme_tufte2())
@@ -75,12 +75,16 @@ get_charts_w_theme <- function(thmname) { # thmname <- sample(thms, size = 1)
 thms %>% 
   map(function(t){ # t <- sample(thms, 1)
     
-    tags$a(t, `data-target` = paste0("#", t), `data-toggle` = "tab") %>% 
+    t %>% 
+      str_replace_all("hc_theme_", "") %>% 
+      tags$a(`data-target` = paste0("#", t), `data-toggle` = "tab") %>% 
       tags$li(class = if(t == thms[1]) "active" else NULL)
     # "<li><a data-target="#profile" data-toggle="tab">Profile</a></li>"
     
   }) %>% 
   tags$ul(class = "nav nav-pills", id = "myTab", .)
+
+tags$br()
 
 thms %>% 
   map(function(t){ # t <- sample(thms, 1)

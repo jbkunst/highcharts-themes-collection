@@ -2,9 +2,9 @@ list_get_demos <- function(){
   
   # data(mpg, package = "ggplot2")
   
-  # p1 <- highcharts_demo()
+  p1 <- highcharts_demo()
   
-  p2 <- hchart(mtcars, "scatter", hcaes(x = mpg, y = disp, group = cyl))
+  # p2 <- hchart(mtcars, "scatter", hcaes(x = mpg, y = disp, group = cyl))
   
   library(forecast)
   p3 <- hchart(
@@ -20,7 +20,7 @@ list_get_demos <- function(){
   # library(quantmod)
   # p6 <- hchart(getSymbols("YHOO", auto.assign = FALSE))
   
-  p <- list(p2, p3, p5)
+  p <- list(p1, p3, p5)
   
   p 
   
