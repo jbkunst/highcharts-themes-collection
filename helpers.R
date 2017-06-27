@@ -20,7 +20,20 @@ list_get_demos <- function(){
   # library(quantmod)
   # p6 <- hchart(getSymbols("YHOO", auto.assign = FALSE))
   
-  p <- list(p1, p3, p5)
+  
+  p7 <- highchart() %>% 
+    hc_add_series(density(rnorm(100000)),
+                  type = "area", name = "Normal Distribution") %>% 
+    hc_add_series(density(rgamma(100000, 5, 0.8)),
+                  type = "area", name = "Gamma(5. 0.8) Distribution") %>%
+    hc_add_series(density(rgamma(100000, 3, 0.8)),
+                  type = "area", name = "Gamma(3. 0.8) Distribution") %>% 
+    hc_plotOptions(series = list(fillOpacity = 0.5)) %>% 
+    hc_xAxis(min = -5, max = 12) %>% 
+    hc_yAxis(showLastLabel = FALSE, showFirstLabel = FALSE, endOnTick = FALSE, startOnTick = FALSE) %>% 
+    hc_xAxis(showLastLabel = FALSE, showFirstLabel = FALSE, endOnTick = FALSE, startOnTick = FALSE)
+  
+  p <- list(p1, p3, p5, p7)
   
   p 
   

@@ -25,8 +25,5 @@
     "tickWidth": 0,
     "gridLineColor": "white",
     "gridZIndex": 4
-  },
-  "legend": {
-    "enabled": false
   }
 }

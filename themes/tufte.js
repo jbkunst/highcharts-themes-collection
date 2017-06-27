@@ -23,8 +23,5 @@
     "tickColor": "#737373",
     "tickWidth": 1,
     "gridLineColor": "transparent"
-  },
-  "legend": {
-    "enabled": false
   }
 }

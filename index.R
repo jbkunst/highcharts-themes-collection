@@ -1,5 +1,5 @@
 #' ---
-#' title: "Highcharts Themes Collection"
+#' title: false
 #' author: false # "Joshua Kunst"
 #' date: false # "`r format(Sys.time(), ' %Y/%m')`"
 #' output:
@@ -49,7 +49,7 @@ get_charts_w_theme <- function(thmname) { # thmname <- sample(thms, size = 1)
   thm <- get(thmname)()
   
   p <- map(p, hc_add_theme, thm)
-  p <- map(p, hc_size, height = 300, width = "100%")
+  p <- map(p, hc_size, height = 325, width = "100%")
   
   if(thmname == "hc_theme_tufte") {
     p[[1]] <- p[[1]] %>% hc_add_theme(hc_theme_tufte2())
@@ -66,7 +66,7 @@ get_charts_w_theme <- function(thmname) { # thmname <- sample(thms, size = 1)
   
   
   p %>% 
-    map(tags$div, class = "col-md-4") %>%
+    map(tags$div, class = "col-md-6") %>%
     tags$div(., br(), tags$small(tags$a(href = link, download = thmname_short, "download")), class = "fluid-row")
     
 }
