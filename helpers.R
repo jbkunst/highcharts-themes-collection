@@ -2,7 +2,8 @@ list_get_demos <- function(){
   
   # data(mpg, package = "ggplot2")
   
-  p1 <- highcharts_demo()
+  p1 <- highcharts_demo() %>% 
+    hc_tooltip(table = TRUE, sort = TRUE)
   
   # p2 <- hchart(mtcars, "scatter", hcaes(x = mpg, y = disp, group = cyl))
   
@@ -31,7 +32,8 @@ list_get_demos <- function(){
     hc_plotOptions(series = list(fillOpacity = 0.5)) %>% 
     hc_xAxis(min = -5, max = 12) %>% 
     hc_yAxis(showLastLabel = FALSE, showFirstLabel = FALSE, endOnTick = FALSE, startOnTick = FALSE) %>% 
-    hc_xAxis(showLastLabel = FALSE, showFirstLabel = FALSE, endOnTick = FALSE, startOnTick = FALSE)
+    hc_xAxis(showLastLabel = FALSE, showFirstLabel = FALSE, endOnTick = FALSE, startOnTick = FALSE) %>% 
+    hc_tooltip(valueDecimals = 3)
   
   p <- list(p1, p3, p5, p7)
   
