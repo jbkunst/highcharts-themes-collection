@@ -66,7 +66,7 @@ get_charts_w_theme <- function(thmname) { # thmname <- sample(thms, size = 1)
   
   
   p %>% 
-    map(tags$div, class = "col-md-6") %>%
+    map(tags$div, class = "col-md-6", style = "padding:0") %>%
     tags$div(., br(), tags$small(tags$a(href = link, download = thmname_short, "download")), class = "fluid-row")
     
 }

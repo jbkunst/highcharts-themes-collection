@@ -2,7 +2,7 @@
   "colors": ["#0266C8", "#F90101", "#F2B50F", "#00933B"],
   "chart": {
     "style": {
-      "fontFamily": "Arial, sans-serif",
+      "fontFamily": "Roboto",
       "color": "#444444"
     }
   },
