@@ -59,6 +59,11 @@
         "enabled": false
       }
     },
+    "arearange": {
+      "marker": {
+        "enabled": false
+      }
+    },
     "bubble": {
       "maxSize": "10%"
     }
