@@ -1,5 +1,5 @@
 #' ---
-#' title: false
+#' title: 'Highcharts theme collection'
 #' author: false # "Joshua Kunst"
 #' date: false # "`r format(Sys.time(), ' %Y/%m')`"
 #' output:
