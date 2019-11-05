@@ -1,2 +1,3 @@
-*.html linguist-generated=true
+*.html linguist-vendored
 *.css linguist-vendored
+
