@@ -49,7 +49,7 @@ get_charts_w_theme <- function(thmname) { # thmname <- sample(thms, size = 1)
   thm <- get(thmname)()
   
   p <- map(p, hc_add_theme, thm)
-  p <- map(p, hc_size, height = 325, width = "100%")
+  p <- map(p, hc_size, height = 400, width = "100%")
   
   if(thmname == "hc_theme_tufte") {
     p[[1]] <- p[[1]] %>% hc_add_theme(hc_theme_tufte2())
@@ -66,7 +66,7 @@ get_charts_w_theme <- function(thmname) { # thmname <- sample(thms, size = 1)
   
   
   p %>% 
-    map(tags$div, class = "col-md-6", style = "padding:0") %>%
+    map(tags$div, class = "col-md-4 col-sm-6", style = "padding:0") %>%
     tags$div(., br(), tags$small(tags$a(href = link, download = thmname_short, "download")), class = "fluid-row")
     
 }
@@ -95,4 +95,8 @@ thms %>%
     
   }) %>% 
   tags$div(class = "tab-content")
-    
+
+
+#'  
+#' <style>.html-widget { margin-bottom: 0px; }</style>
+#'

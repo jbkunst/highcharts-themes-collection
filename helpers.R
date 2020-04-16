@@ -18,9 +18,14 @@ list_get_demos <- function(){
   p5 <- hchart(mpgman2, "column", hcaes(x = class, y = n, group = year))
   
   
-  # library(quantmod)
-  # p6 <- hchart(getSymbols("YHOO", auto.assign = FALSE))
+  library(quantmod)
+  # p6 <- hchart(getSymbols("APPL", auto.assign = FALSE))
+  x <- getSymbols("AAPL", auto.assign = FALSE, from = lubridate::ymd(20181001))
+  y <- getSymbols("AMZN", auto.assign = FALSE, from = lubridate::ymd(20181001))
   
+  p6 <- highchart(type = "stock") %>% 
+    hc_add_series(x) %>% 
+    hc_add_series(y, type = "ohlc")
   
   p7 <- highchart() %>% 
     hc_add_series(density(rnorm(100000)),
@@ -35,7 +40,22 @@ list_get_demos <- function(){
     hc_xAxis(showLastLabel = FALSE, showFirstLabel = FALSE, endOnTick = FALSE, startOnTick = FALSE) %>% 
     hc_tooltip(valueDecimals = 3)
   
-  p <- list(p1, p3, p5, p7)
+  data(GNI2014, package = "treemap")
+  GNI2014 <- select(GNI2014, -population, -continent)
+  color_stops_index <- color_stops(colors = viridis::inferno(10, begin = 0.1))
+  p8 <- hcmap(
+    "custom/world-robinson-lowres",
+    data = GNI2014,
+    name = "GNI",
+    value = "GNI",
+    joinBy = c("iso-a3", "iso3"),
+    nullColor = "#932667"
+  ) %>%
+    hc_colorAxis(stops = color_stops_index, type = "logarithmic") %>%
+    hc_legend(enabled = FALSE) %>%
+    hc_mapNavigation(enabled = FALSE)  
+  
+  p <- list(p1, p3, p5, p7, p6, p8)
   
   p 
   
