@@ -16,6 +16,7 @@ library(highcharter)
 library(tidyverse)
 library(stringr)
 library(jsonlite)
+library(treemap)
 library(htmltools)
 source("helpers.R")
 
